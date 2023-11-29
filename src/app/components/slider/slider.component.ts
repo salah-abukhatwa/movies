@@ -7,6 +7,7 @@ import {
     animate
 } from "@angular/animations";
 import { Movie } from "src/app/models/movie.model";
+import { IMAGES_SIZES } from "../../constants/images-sizes";
 
 @Component({
     selector: "app-slider",
@@ -22,6 +23,8 @@ import { Movie } from "src/app/models/movie.model";
 export class SliderComponent implements OnInit {
     @Input() items: Movie[] = [];
 
+    readonly imagesSizes = IMAGES_SIZES;
+
     currentSlideIndex: number = 0;
     constructor() {}
 
@@ -29,7 +32,6 @@ export class SliderComponent implements OnInit {
         setInterval(() => {
             this.currentSlideIndex =
                 ++this.currentSlideIndex % this.items.length;
-            console.log(this.currentSlideIndex);
         }, 5000);
     }
 }

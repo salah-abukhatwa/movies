@@ -1,0 +1,27 @@
+<a href="" class="movie-item" *ngIf="itemData">
+    <div class="movie-item-rating">
+        <i class="icon">star</i>
+        <span>{{ itemData?.vote_average | number : "1.1-1" }}</span
+        >/10
+    </div>
+    <div class="movie-item-image">
+        <img src="{{ imagesSizes.medium }}{{ itemData?.poster_path }} " />
+    </div>
+    <div class="movie-item-title">
+        {{ itemData?.title }}
+    </div>
+</a>
+
+<a href="" class="movie-item" *ngIf="itemDatatv">
+    <div class="movie-item-rating">
+        <i class="icon">star</i>
+        <span>{{ itemDatatv?.vote_average | number : "1.1-1" }}</span
+        >/10
+    </div>
+    <div class="movie-item-image">
+        <img src="{{ imagesSizes.medium }}{{ itemDatatv?.poster_path }} " />
+    </div>
+    <div class="movie-item-title">
+        {{ itemDatatv?.name }}
+    </div>
+</a>

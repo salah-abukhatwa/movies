@@ -1,3 +1,14 @@
-<app-slider [items]="movies"></app-slider>
+<app-slider [items]="popularMovies"></app-slider>
 
-<app-items-banner></app-items-banner>
+<app-items-banner
+    [items]="topRatedMovies"
+    title="Top Rated Movies"
+></app-items-banner>
+<app-items-banner
+    [items]="upcomingMovies"
+    title="Up Coming Movies"
+></app-items-banner>
+<app-items-banner
+    [itemstv]="topRatedTv"
+    title="Top Rated Tv Show"
+></app-items-banner>
