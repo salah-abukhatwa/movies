@@ -20,4 +20,16 @@ export class TvshowService {
                 })
             );
     }
+
+    searchTvShows(page: number) {
+        return this.http
+            .get<TvShDto>(
+                `${this.dpUrl}/tv/popular?page=${page}&api_key=${this.apiKey}`
+            )
+            .pipe(
+                switchMap((res) => {
+                    return of(res.results);
+                })
+            );
+    }
 }

@@ -22,6 +22,7 @@ import { IMAGES_SIZES } from "../../constants/images-sizes";
 })
 export class SliderComponent implements OnInit {
     @Input() items: Movie[] = [];
+    @Input() isbanner: boolean = false;
 
     readonly imagesSizes = IMAGES_SIZES;
 
@@ -29,9 +30,11 @@ export class SliderComponent implements OnInit {
     constructor() {}
 
     ngOnInit(): void {
-        setInterval(() => {
-            this.currentSlideIndex =
-                ++this.currentSlideIndex % this.items.length;
-        }, 5000);
+        if (!this.isbanner) {
+            setInterval(() => {
+                this.currentSlideIndex =
+                    ++this.currentSlideIndex % this.items.length;
+            }, 5000);
+        }
     }
 }
