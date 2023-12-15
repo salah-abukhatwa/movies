@@ -13,16 +13,16 @@ export class TvShowsComponent implements OnInit {
     constructor(private tvShowService: TvshowService) {}
 
     ngOnInit(): void {
-        this.getTvShows(1);
+        this.getpgTvShows(1);
     }
 
-    getTvShows(page: number) {
-        this.tvShowService.searchTvShows(page).subscribe((tvshow) => {
-            this.tvShows = tvshow;
+    getpgTvShows(page: number) {
+        this.tvShowService.searchTvShows(page).subscribe((tvshows) => {
+            this.tvShows = tvshows;
         });
     }
 
     paginate(event: any) {
-        this.getTvShows(event.page + 1);
+        this.getpgTvShows(event.page + 1);
     }
 }

@@ -11,7 +11,7 @@ import { IMAGES_SIZES } from "../../constants/images-sizes";
 import { TvShow } from "src/app/models/tvShow.model";
 
 @Component({
-    selector: "app-slider",
+    selector: "app-slider-tv",
     templateUrl: "./slider.component.html",
     styleUrls: ["./slider.component.scss"],
     animations: [
@@ -21,8 +21,7 @@ import { TvShow } from "src/app/models/tvShow.model";
         ])
     ]
 })
-export class SliderComponent implements OnInit {
-    @Input() items: Movie[] = [];
+export class SlidertvComponent implements OnInit {
     @Input() tvitems: TvShow[] = [];
 
     @Input() isbanner: boolean = false;
@@ -36,7 +35,7 @@ export class SliderComponent implements OnInit {
         if (!this.isbanner) {
             setInterval(() => {
                 this.currentSlideIndex =
-                    ++this.currentSlideIndex % this.items.length;
+                    ++this.currentSlideIndex % this.tvitems.length;
             }, 5000);
         }
     }

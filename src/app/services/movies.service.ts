@@ -9,6 +9,7 @@ import {
 } from "../models/movie.model";
 import { switchMap } from "rxjs/operators";
 import { of } from "rxjs";
+import { GenresDto } from "../models/genre.model";
 
 @Injectable({
     providedIn: "root"
@@ -66,5 +67,29 @@ export class MoviesService {
         return this.http.get<movieCredits>(
             `${this.dpUrl}/movie/${id}/credits?api_key=${this.apiKey}`
         );
+    }
+
+    getMoviesGenres() {
+        return this.http
+            .get<GenresDto>(
+                `${this.dpUrl}/genre/movie/list?api_key=${this.apiKey}`
+            )
+            .pipe(
+                switchMap((res) => {
+                    return of(res.genres);
+                })
+            );
+    }
+
+    getMoviesbyGenre(genreId: string, pageNumber: number) {
+        return this.http
+            .get<MovieDto>(
+                `${this.dpUrl}/discover/movie?with_genres=${genreId}&page=${pageNumber}&api_key=${this.apiKey}`
+            )
+            .pipe(
+                switchMap((res) => {
+                    return of(res.results);
+                })
+            );
     }
 }
