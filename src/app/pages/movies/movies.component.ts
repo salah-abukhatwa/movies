@@ -12,6 +12,7 @@ import { take } from "rxjs";
 export class MoviesComponent implements OnInit {
     movies: Movie[] = [];
     public genreid: string | null = null;
+    searchValue: string | null = null;
 
     constructor(
         private movieService: MoviesService,
@@ -30,10 +31,12 @@ export class MoviesComponent implements OnInit {
         });
     }
 
-    getpgMovies(page: number) {
-        this.movieService.searchMovies(page).subscribe((movies) => {
-            this.movies = movies;
-        });
+    getpgMovies(page: number, searchKeyword?: string) {
+        this.movieService
+            .searchMovies(page, searchKeyword)
+            .subscribe((movies) => {
+                this.movies = movies;
+            });
     }
 
     getMoviesById(genreId: string, page: number) {
@@ -49,7 +52,18 @@ export class MoviesComponent implements OnInit {
         if (this.genreid) {
             this.getMoviesById(this.genreid, pageNumber);
         } else {
-            this.getpgMovies(pageNumber);
+            if (this.searchValue) {
+                this.getpgMovies(pageNumber, this.searchValue);
+            } else {
+                this.getpgMovies(pageNumber);
+            }
+        }
+    }
+
+    searchChanged() {
+        if (this.searchValue) {
+            this.getpgMovies(1, this.searchValue);
+            console.log(this.searchValue);
         }
     }
 }
