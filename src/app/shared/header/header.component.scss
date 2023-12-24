@@ -1,5 +1,4 @@
-@import "/src/app/styles/colors";
-
+@import "../../styles/colors";
 header {
     .navbar {
         display: flex;
@@ -18,13 +17,41 @@ header {
             }
         }
         &-links {
-            display: block;
-            padding: 0;
+            display: flex;
+            padding: 0 30px;
             margin: 0;
             list-style: none;
-            li {
-                display: inline;
-                margin-right: 15px;
+
+            ul {
+                padding: 0 30px;
+                margin: 0;
+
+                li {
+                    display: inline-block;
+                    margin-right: 15px;
+
+                    a {
+                        mat-icon {
+                            padding: 3px 0px;
+                            margin: 0;
+                        }
+                    }
+
+                    mat-icon {
+                        margin-right: 5px;
+                    }
+                }
+            }
+            div {
+                .gbutton {
+                    flex-direction: row;
+                    color: white;
+                    background-color: $primaryColor;
+                    p {
+                        width: 120;
+                        display: inline;
+                    }
+                }
             }
         }
     }

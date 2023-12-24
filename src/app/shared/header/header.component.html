@@ -3,11 +3,34 @@
         <a href="" class="navbar-logo">
             <img src="assets/images/logo.avif" alt="" />
         </a>
-        <ul class="navbar-links">
-            <li><a href="" routerLink="/">Home</a></li>
-            <li><a href="" routerLink="/movies">Movies</a></li>
-            <li><a href="" routerLink="/tvshows">TV Shows</a></li>
-            <li><a href="" routerLink="/genres">Genres</a></li>
-        </ul>
+        <div class="navbar-links">
+            <ul>
+                <li>
+                    <a href="" routerLink="/">
+                        <mat-icon>home</mat-icon> Home</a
+                    >
+                </li>
+                <li><a href="" routerLink="/movies">Movies</a></li>
+                <li><a href="" routerLink="/tvshows">TV Shows</a></li>
+            </ul>
+            <div>
+                <button
+                    class="gbutton"
+                    mat-button
+                    [matMenuTriggerFor]="genresMenu"
+                >
+                    <p>Choose Genres</p>
+                    <mat-icon>keyboard_arrow_down</mat-icon>
+                </button>
+                <mat-menu #genresMenu="matMenu">
+                    <button mat-menu-item routerLink="/genres">
+                        Movie Genres
+                    </button>
+                    <button mat-menu-item routerLink="/tvgenres">
+                        TV Genres
+                    </button>
+                </mat-menu>
+            </div>
+        </div>
     </nav>
 </header>

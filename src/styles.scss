@@ -32,7 +32,20 @@ a {
     white-space: nowrap;
     direction: ltr;
 }
+.mat-icon {
+    color: white;
+}
+
 .container {
     margin: 0.5rem;
     padding: 0.5rem;
+}
+
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }

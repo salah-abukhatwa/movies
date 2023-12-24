@@ -17,13 +17,17 @@ import { ItemsBannerComponent } from "./components/items-banner/items-banner.com
 import { ItemComponent } from "./components/item/item.component";
 import { TvShowsComponent } from "./pages/tv-shows/tv-shows.component";
 import { TvShowComponent } from "./pages/tv-show/tv-show.component";
-import { GenresComponent } from "./pages/genres/genres.component";
+import { GenresComponent } from "./pages/move-genres/genres.component";
 import { PaginatorModule } from "primeng/paginator";
 import { TabViewModule } from "primeng/tabview";
 import { VideoEmbedComponent } from "./components/video-embed/video-embed.component";
 import { ImageModule } from "primeng/image";
 import { CarouselModule } from "primeng/carousel";
 import { InputTextModule } from "primeng/inputtext";
+import { TvGenresComponent } from "./pages/tv-genres/tv-genres.component";
+import { MatMenuModule } from "@angular/material/menu";
+import { MatButtonModule } from "@angular/material/button";
+import { MatIconModule } from "@angular/material/icon";
 @NgModule({
     declarations: [
         AppComponent,
@@ -39,7 +43,8 @@ import { InputTextModule } from "primeng/inputtext";
         MovieComponent,
         TvShowComponent,
         VideoEmbedComponent,
-        GenresComponent
+        GenresComponent,
+        TvGenresComponent
     ],
     imports: [
         BrowserModule,
@@ -50,7 +55,10 @@ import { InputTextModule } from "primeng/inputtext";
         TabViewModule,
         ImageModule,
         CarouselModule,
-        InputTextModule
+        InputTextModule,
+        MatMenuModule,
+        MatButtonModule,
+        MatIconModule
     ],
     providers: [],
     bootstrap: [AppComponent]

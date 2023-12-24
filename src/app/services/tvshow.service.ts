@@ -9,6 +9,8 @@ import {
 } from "../models/tvShow.model";
 import { switchMap } from "rxjs/operators";
 import { of } from "rxjs";
+import { GenresDto } from "../models/genre.model";
+import { MovieDto } from "../models/movie.model";
 @Injectable({
     providedIn: "root"
 })
@@ -33,10 +35,11 @@ export class TvshowService {
         );
     }
 
-    searchTvShows(page: number) {
+    searchTvShows(page: number, searchValue?: string) {
+        const uri = searchValue ? "/search/tv" : "/tv/popular";
         return this.http
             .get<TvShDto>(
-                `${this.dpUrl}/tv/popular?page=${page}&api_key=${this.apiKey}`
+                `${this.dpUrl}${uri}?&page=${page}&query=${searchValue}&api_key=${this.apiKey}`
             )
             .pipe(
                 switchMap((res) => {
@@ -66,5 +69,29 @@ export class TvshowService {
         return this.http.get<TvShowCredits>(
             `${this.dpUrl}/tv/${id}/credits?api_key=${this.apiKey}`
         );
+    }
+
+    getTvShowGenres() {
+        return this.http
+            .get<GenresDto>(
+                `${this.dpUrl}/genre/tv/list?api_key=${this.apiKey}`
+            )
+            .pipe(
+                switchMap((res) => {
+                    return of(res.genres);
+                })
+            );
+    }
+
+    gettvShowsbyGenre(genreId: string, pageNumber: number) {
+        return this.http
+            .get<TvShDto>(
+                `${this.dpUrl}/discover/tv?with_genres=${genreId}&page=${pageNumber}&api_key=${this.apiKey}`
+            )
+            .pipe(
+                switchMap((res) => {
+                    return of(res.results);
+                })
+            );
     }
 }
