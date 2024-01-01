@@ -4,6 +4,9 @@
     .p-tabview-nav {
         justify-content: center;
     }
+    .p-tabview-nav .p-highlight {
+        background-color: $primaryColor;
+    }
 }
 
 .poster {
@@ -30,11 +33,13 @@
     align-items: center;
     flex-direction: column;
 
-    img {
-    }
-
     div {
         text-align: center;
         margin: 10px 0;
     }
+}
+
+.grid {
+    display: flex;
+    align-items: center;
 }

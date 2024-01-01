@@ -44,9 +44,10 @@ header {
             }
             div {
                 .gbutton {
-                    flex-direction: row;
                     color: white;
                     background-color: $primaryColor;
+                    flex-direction: row-reverse;
+                    justify-content: flex-end;
                     p {
                         width: 120;
                         display: inline;

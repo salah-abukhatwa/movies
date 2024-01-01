@@ -80,6 +80,50 @@
                 </ng-container>
             </div>
         </p-tabPanel>
+        <p-tabPanel header="Seasons_#">
+            <div
+                class="grid"
+                *ngFor="
+                    let season of tvShow.seasons;
+                    let even = even;
+                    let odd = odd
+                "
+                [ngStyle]="{
+                    'background-color': even ? '#141414' : '#212121'
+                }"
+            >
+                <div class="col-12 md:col-3 lg:col-3">
+                    <!-- Adjust 'color1' and 'color2' with your desired background colors -->
+                    <img
+                        class="poster"
+                        [src]="imagesSizes.small + season.poster_path"
+                        [alt]="tvShow.name"
+                    />
+                </div>
+                <div
+                    class="col-12 md:col-9 lg:col-9"
+                    [ngStyle]="{
+                        'background-color': even ? '#141414' : '#212121'
+                    }"
+                >
+                    <div class="stat">
+                        <div class="value">{{ season.name }}</div>
+                    </div>
+                    <h2>Overview</h2>
+                    <p>{{ season.overview }}</p>
+                    <div class="stat">
+                        <div class="label">Release Date :</div>
+                        <div class="value">
+                            {{ season.air_date | date : "dd.MM.yyyy" }}
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <div class="label">Number of episodes :</div>
+                        <div class="value">{{ season.episode_count }}</div>
+                    </div>
+                </div>
+            </div>
+        </p-tabPanel>
     </p-tabView>
     <p-carousel
         *ngIf="tvShowCredits"
