@@ -3,9 +3,13 @@
 Movies App is a modern Angular application that displays real and up-to-date movie data fetched from a public API. It provides a rich user interface with sliders, tabs, carousels, and detailed movie pages for an engaging browsing experience.
 
 
-## Development server
+## Key Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Homepage: Popular movies slider, upcoming movies section with cards, and navigation.
+Movie Details Page: Overview, trailers, image gallery with zoom, cast carousel, and similar movies.
+Genres: Browse movies and TV shows by categories.
+Reusable Components: Slider used as both a banner and carousel to demonstrate flexibility.
+##Interactive UI##: Built with Angular animations, Angular Material, and PrimeNG components.
 
 ## Code scaffolding
 
