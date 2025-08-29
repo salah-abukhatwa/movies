@@ -6,9 +6,13 @@ Movies App is a modern Angular application that displays real and up-to-date mov
 ## Key Features
 
 **Homepage**: Popular movies slider, upcoming movies section with cards, and navigation.
+
 **Movie Details Page**: Overview, trailers, image gallery with zoom, cast carousel, and similar movies.
+
 **Genres**: Browse movies and TV shows by categories.
+
 **Reusable Components**: Slider used as both a banner and carousel to demonstrate flexibility.
+
 **Interactive UI** : Built with Angular animations, Angular Material, and PrimeNG components.
 
 ## Technologies
