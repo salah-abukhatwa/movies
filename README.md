@@ -9,7 +9,7 @@ Homepage: Popular movies slider, upcoming movies section with cards, and navigat
 Movie Details Page: Overview, trailers, image gallery with zoom, cast carousel, and similar movies.
 Genres: Browse movies and TV shows by categories.
 Reusable Components: Slider used as both a banner and carousel to demonstrate flexibility.
-##Interactive UI##: Built with Angular animations, Angular Material, and PrimeNG components.
+#Interactive UI#: Built with Angular animations, Angular Material, and PrimeNG components.
 
 ## Code scaffolding
 
