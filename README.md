@@ -18,9 +18,13 @@ Movies App is a modern Angular application that displays real and up-to-date mov
 ## Technologies
 
 **Angular** (Frontend framework).
+
 **Angular Material** (UI components).
+
 **PrimeNG** (Tabs, Carousel, UI library).
+
 **Angular Animations** (Transitions and effects).
+
 **Movies API** (Real-time data source).
 
 
