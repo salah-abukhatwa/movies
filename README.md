@@ -1,6 +1,7 @@
 # Movies
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
+Movies App is a modern Angular application that displays real and up-to-date movie data fetched from a public API. It provides a rich user interface with sliders, tabs, carousels, and detailed movie pages for an engaging browsing experience.
+
 
 ## Development server
 
@@ -24,4 +25,4 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
