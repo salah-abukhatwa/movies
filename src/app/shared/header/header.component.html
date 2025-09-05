@@ -1,18 +1,28 @@
 <header>
     <nav class="navbar">
         <a href="" class="navbar-logo">
-            <img src="assets/images/logo.avif" alt="" />
+            <img src="assets/images/logo.avif" alt="Logo" />
         </a>
-        <div class="navbar-links">
+
+        <button class="menu-toggle" mat-icon-button (click)="toggleMenu()">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <div class="navbar-links" [class.open]="isMenuOpen">
             <ul>
                 <li>
-                    <a href="" routerLink="/">
-                        <mat-icon>home</mat-icon> Home</a
+                    <a routerLink="/" (click)="closeMenu()"
+                        ><mat-icon>home</mat-icon>Home</a
                     >
                 </li>
-                <li><a href="" routerLink="/movies">Movies</a></li>
-                <li><a href="" routerLink="/tvshows">TV Shows</a></li>
+                <li>
+                    <a routerLink="/movies" (click)="closeMenu()">Movies</a>
+                </li>
+                <li>
+                    <a routerLink="/tvshows" (click)="closeMenu()">TV Shows</a>
+                </li>
             </ul>
+
             <div>
                 <button
                     class="gbutton"
@@ -23,14 +33,25 @@
                     <p>Choose Genres</p>
                 </button>
                 <mat-menu #genresMenu="matMenu">
-                    <button mat-menu-item routerLink="/genres">
+                    <button
+                        mat-menu-item
+                        routerLink="/genres"
+                        (click)="closeMenu()"
+                    >
                         Movie Genres
                     </button>
-                    <button mat-menu-item routerLink="/tvgenres">
+                    <button
+                        mat-menu-item
+                        routerLink="/tvgenres"
+                        (click)="closeMenu()"
+                    >
                         TV Genres
                     </button>
                 </mat-menu>
             </div>
         </div>
     </nav>
+
+    <!-- Overlay -->
+    <div class="overlay" [class.show]="isMenuOpen" (click)="closeMenu()"></div>
 </header>

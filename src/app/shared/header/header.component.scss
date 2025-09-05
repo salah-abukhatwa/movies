@@ -1,4 +1,5 @@
 @import "../../styles/colors";
+
 header {
     .navbar {
         display: flex;
@@ -6,52 +7,234 @@ header {
         justify-content: space-between;
         padding: 0.5rem 1rem;
         height: 65px;
-        background-color: $bgColorLight;
-        margin: 0;
-        border-bottom: 1px solid rgb(255, 255, 255, 0.1);
+        background: linear-gradient(
+            90deg,
+            $bgColorLight,
+            darken($bgColorLight, 5%)
+        );
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        z-index: 1000;
 
         &-logo {
-            display: block;
             img {
-                width: 70px;
+                width: 55px;
+                height: 55px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 2px solid $primaryColor;
+                transition: transform 0.3s ease;
+
+                &:hover {
+                    transform: scale(1.1) rotate(5deg);
+                }
             }
         }
+
+        .menu-toggle {
+            display: none;
+            color: white;
+            z-index: 1200;
+        }
+
         &-links {
             display: flex;
-            padding: 0 30px;
-            margin: 0;
-            list-style: none;
+            align-items: center;
 
             ul {
-                padding: 0 30px;
+                display: flex;
                 margin: 0;
+                padding: 0;
+                list-style: none;
 
                 li {
-                    display: inline-block;
-                    margin-right: 15px;
+                    margin-right: 10px;
 
                     a {
-                        mat-icon {
-                            padding: 3px 0px;
-                            margin: 0;
-                        }
-                    }
+                        display: flex;
+                        align-items: center;
+                        height: 40px;
+                        line-height: 40px;
+                        padding: 0 12px;
+                        border-radius: 20px;
+                        transition: all 0.3s ease;
 
-                    mat-icon {
-                        margin-right: 5px;
+                        mat-icon {
+                            margin-right: 5px;
+                        }
+
+                        &:hover {
+                            background-color: rgba($primaryColor, 0.15);
+                            color: $primaryColor;
+                        }
                     }
                 }
             }
-            div {
-                .gbutton {
-                    color: white;
-                    background-color: $primaryColor;
-                    flex-direction: row-reverse;
-                    justify-content: flex-end;
-                    p {
-                        width: 120;
-                        display: inline;
+        }
+    }
+
+    .gbutton {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 18px;
+        border-radius: 25px;
+        font-weight: 500;
+        font-size: 15px;
+        color: white;
+        background: linear-gradient(
+            135deg,
+            $primaryColor,
+            lighten($primaryColor, 10%)
+        );
+        box-shadow: 0 4px 10px rgba($primaryColor, 0.3);
+        transition: all 0.3s ease;
+        cursor: pointer;
+
+        mat-icon {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        &:hover {
+            background: linear-gradient(
+                135deg,
+                lighten($primaryColor, 5%),
+                $primaryColor
+            );
+            box-shadow: 0 6px 14px rgba($primaryColor, 0.4);
+
+            mat-icon {
+                transform: rotate(180deg);
+            }
+        }
+
+        &:active {
+            transform: scale(0.96);
+        }
+    }
+
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(3px);
+        z-index: 800;
+        transition: opacity 0.3s ease-in-out;
+        opacity: 0;
+        clip-path: ellipse(100% 100% at 100% 50%);
+
+        &.show {
+            display: block;
+            opacity: 1;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .navbar {
+            .menu-toggle {
+                display: block;
+            }
+
+            &-links {
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                right: 0;
+                height: 100vh;
+                width: 280px;
+                padding: 3rem 1.8rem;
+                background: rgba($bgColorLight, 0.95);
+                backdrop-filter: blur(10px);
+                transform: translateX(100%);
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                box-shadow: -6px 0 25px rgba(0, 0, 0, 0.45);
+                transition: transform 0.35s ease-in-out;
+                z-index: 1050;
+                clip-path: ellipse(90% 100% at 100% 50%);
+
+                ul {
+                    flex-direction: column;
+                    width: 100%;
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+
+                    li {
+                        width: 100%;
+                        margin: 12px 0;
+
+                        a {
+                            display: flex;
+                            align-items: center;
+                            gap: 12px;
+                            padding: 14px 20px;
+                            width: 100%;
+                            box-sizing: border-box;
+                            border-radius: 14px;
+                            font-size: 15px;
+                            font-weight: 500;
+                            color: $white;
+                            background: rgba(255, 255, 255, 0.05);
+                            backdrop-filter: blur(2px);
+                            transition: all 0.3s ease;
+
+                            mat-icon {
+                                font-size: 20px;
+                            }
+
+                            &:hover {
+                                background: rgba($primaryColor, 0.2);
+                                color: $primaryColor;
+                                transform: translateX(5px);
+                            }
+                        }
                     }
+                }
+
+                .gbutton {
+                    width: 100%;
+                    margin-top: 25px;
+                    justify-content: flex-start;
+                    border-radius: 14px;
+                    padding: 14px 20px;
+                    font-size: 15px;
+                    background: rgba(255, 213, 79, 0.9);
+                    color: $bgColor;
+                    box-shadow: 0 4px 12px rgba($primaryColor, 0.3);
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        background: $primaryColor;
+                        color: $bgColor;
+                        box-shadow: 0 6px 16px rgba($primaryColor, 0.4);
+                        transform: translateX(5px);
+                    }
+
+                    mat-icon {
+                        margin-right: 8px;
+                        transition: transform 0.3s ease;
+                    }
+
+                    &.cdk-focused mat-icon,
+                    &.cdk-program-focused mat-icon {
+                        transform: rotate(180deg);
+                    }
+                }
+
+                &.open {
+                    transform: translateX(0);
                 }
             }
         }
