@@ -10,24 +10,21 @@ import {
 import { switchMap } from "rxjs/operators";
 import { of } from "rxjs";
 import { GenresDto } from "../models/genre.model";
+import { environment } from "src/environments/environment";
 
 @Injectable({
     providedIn: "root"
 })
 export class MoviesService {
-    dpUrl: string = "https://api.themoviedb.org/3";
-    apiKey: string = "806306a710ed06b2d71e02fd0742c7d9";
+    dpUrl = environment.apiUrl;
+    apiKey = environment.apiKey;
 
     constructor(private http: HttpClient) {}
 
     getMovies(type: string = "upcoming", count: number = 12) {
         return this.http
             .get<MovieDto>(`${this.dpUrl}/movie/${type}?api_key=${this.apiKey}`)
-            .pipe(
-                switchMap((res) => {
-                    return of(res.results.slice(0, count));
-                })
-            );
+            .pipe(switchMap((res) => of(res.results.slice(0, count))));
     }
     getMovie(id: string) {
         return this.http.get<Movie>(

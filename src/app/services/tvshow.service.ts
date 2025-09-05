@@ -11,12 +11,13 @@ import { switchMap } from "rxjs/operators";
 import { of } from "rxjs";
 import { GenresDto } from "../models/genre.model";
 import { MovieDto } from "../models/movie.model";
+import { environment } from "src/environments/environment";
 @Injectable({
     providedIn: "root"
 })
 export class TvshowService {
-    dpUrl: string = "https://api.themoviedb.org/3";
-    apiKey: string = "806306a710ed06b2d71e02fd0742c7d9";
+    dpUrl = environment.apiUrl;
+    apiKey = environment.apiKey;
     constructor(private http: HttpClient) {}
 
     getTvShowes(type: string = "topRated", count: number = 12) {
