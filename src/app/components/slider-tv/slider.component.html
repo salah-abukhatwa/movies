@@ -23,17 +23,22 @@
                         <span>{{ item.first_air_date | date : "yyyy" }}</span>
                     </div>
                 </div>
-                <div class="desc mt-6">{{ item.overview }}</div>
-                <div class="network" *ngFor="let network of item.networks">
-                    <img
-                        class="mt-6"
-                        [src]="imagesSizes.small + network.logo_path"
-                        alt=""
-                    />
-                    <span class="spp">
-                        <h4>Now Streaming</h4>
-                        <h3>Watch Now</h3>
-                    </span>
+                <!-- <div class="desc mt-6">{{ item.overview }}</div> -->
+                <div class="networks-wrapper">
+                    <div
+                        class="network"
+                        *ngFor="let network of item.networks | slice : 0 : 2"
+                    >
+                        <img
+                            class="mt-6"
+                            [src]="imagesSizes.small + network.logo_path"
+                            alt=""
+                        />
+                        <span class="spp">
+                            <h4>Now Streaming</h4>
+                            <h3>Watch Now</h3>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>

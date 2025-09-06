@@ -1,5 +1,9 @@
 <ng-container *ngIf="movie">
-    <app-slider [items]="[movie]" [isbanner]="true"></app-slider>
+    <app-slider
+        [items]="[movie]"
+        [isbanner]="true"
+        [showOverview]="false"
+    ></app-slider>
     <p-tabView>
         <p-tabPanel header="OverView">
             <div class="grid">

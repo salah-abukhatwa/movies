@@ -23,7 +23,9 @@
                         <span>{{ item.release_date | date : "yyyy" }}</span>
                     </div>
                 </div>
-                <div class="desc mt-6">{{ item.overview }}</div>
+                <div class="desc mt-6" *ngIf="showOverview">
+                    {{ item.overview }}
+                </div>
             </div>
         </div>
     </ng-container>

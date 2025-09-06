@@ -24,8 +24,8 @@ import { TvShow } from "src/app/models/tvShow.model";
 export class SliderComponent implements OnInit {
     @Input() items: Movie[] = [];
     @Input() tvitems: TvShow[] = [];
-
     @Input() isbanner: boolean = false;
+    @Input() showOverview: boolean = true;
 
     readonly imagesSizes = IMAGES_SIZES;
 

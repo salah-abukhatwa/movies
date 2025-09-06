@@ -38,5 +38,12 @@ export class SlidertvComponent implements OnInit {
                     ++this.currentSlideIndex % this.tvitems.length;
             }, 5000);
         }
+
+        if (this.tvitems?.length) {
+            this.tvitems = this.tvitems.map((show) => ({
+                ...show,
+                networks: show.networks.slice(0, 2)
+            }));
+        }
     }
 }
