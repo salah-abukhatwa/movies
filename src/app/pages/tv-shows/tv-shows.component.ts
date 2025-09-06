@@ -21,7 +21,7 @@ export class TvShowsComponent implements OnInit {
 
     ngOnInit(): void {
         this.route.params.pipe(take(1)).subscribe(({ genreid }) => {
-            if ({ genreid }) {
+            if (genreid) {
                 this.genreid = genreid;
                 this.getTvShowsById(genreid, 1);
                 console.log(genreid);

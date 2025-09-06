@@ -21,7 +21,7 @@ export class MoviesComponent implements OnInit {
 
     ngOnInit(): void {
         this.route.params.pipe(take(1)).subscribe(({ genreid }) => {
-            if ({ genreid }) {
+            if (genreid) {
                 this.genreid = genreid;
                 this.getMoviesById(genreid, 1);
                 console.log(genreid);
