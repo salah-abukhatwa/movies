@@ -61,6 +61,7 @@ header {
 
                         mat-icon {
                             margin-right: 0px;
+                            height: 30px;
                         }
 
                         &:hover {
@@ -93,6 +94,7 @@ header {
 
         mat-icon {
             font-size: 20px;
+
             transition: transform 0.3s ease;
         }
 
@@ -178,7 +180,7 @@ header {
                         a {
                             display: flex;
                             align-items: center;
-                            gap: 12px;
+
                             padding: 14px 20px;
                             width: 100%;
                             box-sizing: border-box;
@@ -192,6 +194,7 @@ header {
 
                             mat-icon {
                                 font-size: 20px;
+                                height: 24px;
                             }
 
                             &:hover {

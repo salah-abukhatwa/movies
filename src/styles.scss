@@ -41,6 +41,25 @@ a {
     padding: 0.5rem;
 }
 
+.mat-mdc-menu-panel {
+    border-radius: 10px !important;
+    box-shadow: 0 6px 20px rgba($primaryColor, 0.3) !important;
+}
+
+.mat-mdc-menu-content {
+    background: rgba($bgColorLight, 0.95) !important;
+    backdrop-filter: blur(6px);
+}
+
+.mat-mdc-menu-item {
+    color: $white !important;
+
+    &:hover {
+        background: rgba($primaryColor, 0.15) !important;
+        color: $primaryColor !important;
+    }
+}
+
 html,
 body {
     height: 100%;
