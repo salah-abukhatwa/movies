@@ -2,7 +2,7 @@
 
 Movies App is a modern Angular application that displays real and up-to-date movie data fetched from a public API. It provides a rich user interface with sliders, tabs, carousels, and detailed movie pages for an engaging browsing experience.
 
-**Live Demo:** [https://salah-abukhatwa.github.io/SALAH-SHOP/](https://salah-abukhatwa.github.io/SALAH-SHOP/)
+**Live Demo:** [https://salah-abukhatwa.github.io/movies/](https://salah-abukhatwa.github.io/movies/)
 
 
 ## Key Features
